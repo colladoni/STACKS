@@ -14,7 +14,6 @@ int isEmpty(STACK *S);
 int isFull(STACK *S); //1 - true, 0 - false
 void display(STACK *S);
 int top(STACK *S); //return top element
-void insertBottom(STACK *S, char data);
 
 void initialize(STACK *S){
     S->top = MAX-1;
