@@ -10,8 +10,8 @@ typedef struct node{
 void initialize(STACK *S);
 void push(STACK *S, char data);
 void pop(STACK *S);
-//int isEmpty(STACK *S);
-int isFull(STACK *S);
+int isEmpty(STACK *S);
+//int isFull(STACK *S);
 void display(STACK *S);
 //int top(STACK *S);
 void insertBottom(STACK *S, char data);
@@ -40,11 +40,7 @@ void pop(STACK *S){ //no return, just delete
 }
 
 int isEmpty(STACK *S){
-	if{
-		return 0;
-	}else{
-		return 1;
-	}  //return (*S == NULL) ? 0 : 1;
+	return (*S == NULL) ? 1 : 0; //1 is Empty, 0 is not Empty
 }
 
 #endif
