@@ -14,7 +14,7 @@ int isEmpty(STACK *S);
 //int isFull(STACK *S);
 void display(STACK *S);
 //int top(STACK *S);
-void insertBottom(STACK *S, char data);
+
 
 
 void initialize(STACK *S){
