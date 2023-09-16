@@ -1,5 +1,5 @@
 #include "stackADTarray.h"
-#include "stackADTlinklist"
+#include "stackADTlinklist.h"
 
 int main(){
 

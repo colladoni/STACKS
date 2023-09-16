@@ -8,22 +8,23 @@ typedef struct node{
 }*STACK;
 
 void initialize(STACK *S);
-void push(STACK *S, char newC);
+void push(STACK *S, char data);
 void pop(STACK *S);
-int isEmpty(STACK *S);
-int isFull(STACK S);
-void display(STACK S);
-int top(STACK S);
+//int isEmpty(STACK *S);
+int isFull(STACK *S);
+void display(STACK *S);
+//int top(STACK *S);
+void insertBottom(STACK *S, char data);
 
 
 void initialize(STACK *S){
 	*S = NULL;
 }
 
-void push(STACK *S, char newC){
+void push(STACK *S, char data){
 	STACK temp = (STACK*)malloc(sizeof(struct node));
 	if(temp != NULL){
-		temp->elem = newC;
+		temp->elem = data;
 		temp->link = *S;
 	}
 	*S = temp;
