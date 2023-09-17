@@ -37,7 +37,7 @@ void insertBottom(STACK *S, char data){
     STACK temp;
 
     if(!isEmpty(*S)){
-		    initialize(&temp);
+	    initialize(&temp);
 
             while(!isEmpty(*S)){
             push(&temp, top(*S));
