@@ -1,7 +1,6 @@
 #include <stdio.h>
-// #include "stackADTarray.h"
-#include "stackADTlinklist.h"
-
+#include "stackADTarray.h"
+// #include "stackADTlinklist.h"
 
 
 int main(){
@@ -26,10 +25,10 @@ int main(){
     printf("Stack after pushing D and E:\n");
     display(Ss);
 
-    // insertBottom(&Ss,'J');
+    insertBottom(&Ss,'J');
     
-    // printf("Stack after inserting J in bottom:\n");
-    // display(Ss);
+    printf("Stack after inserting J in bottom:\n");
+    display(Ss);
 
     return 0;
 }

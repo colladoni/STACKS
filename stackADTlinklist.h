@@ -13,6 +13,7 @@ void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S);
 void display(STACK S);
+void insertBottom(STACK *S, char data);
 
 
 void initialize(STACK *S){
@@ -60,5 +61,24 @@ void display(STACK S){
 	}
 	 printf("\n");
 }
+
+void insertBottom(STACK *S, char data){
+	STACK temp;
+	
+	if(S!=NULL){
+		initialize(&temp);
+		while((*S)!=NULL){
+			push(&temp, (*S)->elem);
+			pop(S);
+		}
+		push(S,data);
+
+		while(temp!=NULL){
+			push(S, temp->elem);
+			pop(&temp);
+		}
+	}
+}
+
 
 #endif
