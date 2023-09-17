@@ -13,7 +13,8 @@ void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S);
 void display(STACK S);
-void insertBottom(STACK *S, char data);
+//void insertBottom(STACK *S, char data);
+char top(STACK S);
 
 
 void initialize(STACK *S){
@@ -62,7 +63,7 @@ void display(STACK S){
 	 printf("\n");
 }
 
-void insertBottom(STACK *S, char data){
+/*void insertBottom(STACK *S, char data){
 	STACK temp;
 	
 	if(S!=NULL){
@@ -78,7 +79,12 @@ void insertBottom(STACK *S, char data){
 			pop(&temp);
 		}
 	}
-}
+}*/
 
+char top(STACK S){
+	if(!isEmpty(S)){
+		return S->elem;
+	}
+}
 
 #endif
