@@ -33,4 +33,21 @@ int main(){
     return 0;
 }
 
+void insertBottom(STACK *S, char data){
+    STACK temp;
+
+    if(!isEmpty(*S)){
+		    initialize(&temp);
+
+            while(!isEmpty(*S)){
+            push(&temp, top(*S));
+			pop(S);
+	    }
+        
+		while(!isEmpty(temp)){
+			push(S, top(temp));
+			pop(&temp);
+        }
+    }
+}
 
