@@ -14,6 +14,7 @@ void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S); //1 - true, 0 - false
 void display(STACK S);
+void insertBottom(STACK *S, char data);
 
 void initialize(STACK *S){
     S->top = MAX;
@@ -67,5 +68,29 @@ void display(STACK S) {
     printf("\n");
 }
 
+void insertBottom(STACK *S, char data){
+    STACK tempStack;
+    char elem;
+
+    initialize(&tempStack);
+
+    if (isFull(*S) || isEmpty(*S)) {
+        printf("Error inserting. \n");
+        return;
+    }
+    while (!isEmpty(*S)) {
+        elem = S->elem[S->top];
+        push(&tempStack, elem);
+        pop(S);
+    }
+
+    push(S,data);//insert bottom
+
+    while (!isEmpty(tempStack)) {
+        elem = tempStack.elem[tempStack.top];
+        push(S,elem);
+        pop(&tempStack);
+    }
+}
 
 #endif
