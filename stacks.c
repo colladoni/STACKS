@@ -12,12 +12,15 @@ void insertBottom(STACK *S, char data){
         	push(&temp, top(*S));
 		pop(S);
 	}
-    push(S,data);
+    	
+	push(S,data);
 
 	 while(!isEmpty(temp)){
 		push(S, top(temp));
 		pop(&temp);
         }
+    }else{
+	push(S,data);
     }
 }
 
