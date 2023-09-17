@@ -70,7 +70,7 @@ void display(STACK S) {
 
 void insertBottom(STACK *S, char data){
     STACK tempStack;
-    char elem;
+   
 
     initialize(&tempStack);
 
@@ -79,16 +79,14 @@ void insertBottom(STACK *S, char data){
         return;
     }
     while (!isEmpty(*S)) {
-        elem = S->elem[S->top];
-        push(&tempStack, elem);
+        push(&tempStack, S->elem[S->top]);
         pop(S);
     }
 
     push(S,data);//insert bottom
 
     while (!isEmpty(tempStack)) {
-        elem = tempStack.elem[tempStack.top];
-        push(S,elem);
+        push(S,tempStack.elem[tempStack.top]);
         pop(&tempStack);
     }
 }
