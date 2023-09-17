@@ -2,6 +2,24 @@
 #include "stackADTarray.h"
 // #include "stackADTlinklist.h"
 
+void insertBottom(STACK *S, char data){
+    STACK temp;
+
+    if(!isEmpty(*S)){
+	initialize(&temp);
+
+        while(!isEmpty(*S)){
+        	push(&temp, top(*S));
+		pop(S);
+	}
+    push(S,data);
+
+	 while(!isEmpty(temp)){
+		push(S, top(temp));
+		pop(&temp);
+        }
+    }
+}
 
 int main(){
     STACK Ss;
@@ -33,21 +51,5 @@ int main(){
     return 0;
 }
 
-void insertBottom(STACK *S, char data){
-    STACK temp;
 
-    if(!isEmpty(*S)){
-	initialize(&temp);
-
-        while(!isEmpty(*S)){
-        	push(&temp, top(*S));
-		pop(S);
-	}
-        
-	 while(!isEmpty(temp)){
-		push(S, top(temp));
-		pop(&temp);
-        }
-    }
-}
 
