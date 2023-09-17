@@ -64,9 +64,13 @@ void display(STACK S){
 
 
 char top(STACK S){
+	char retval;
 	if(!isEmpty(S)){
-		return S->elem;
+		retval = S->elem;
+	}else{
+		retval = '0';
 	}
+	return retval;
 }
 
 #endif
