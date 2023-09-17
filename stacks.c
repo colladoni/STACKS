@@ -37,7 +37,7 @@ int main(){
 void insertBottom(STACK *S, char data){
     STACK temp;
 
-    if(!isEmpty(*S)){
+    if(!isFull(*S)&&!isEmpty(*S)){
 	initialize(&temp);
 
         while(!isEmpty(*S)){
@@ -51,7 +51,7 @@ void insertBottom(STACK *S, char data){
 		push(S, top(temp));
 		pop(&temp);
         }
-    }else{
+    }else if(!isFull(*S)&&isEmpty(*S)){
 	push(S,data);
     }
 }
