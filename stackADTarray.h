@@ -14,7 +14,6 @@ void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S); //1 - true, 0 - false
 void display(STACK S);
-
 char top(STACK S);
 
 void initialize(STACK *S){
@@ -71,9 +70,13 @@ void display(STACK S) {
 
 
 char top(STACK S){
+	char retval;
 	if(!isEmpty(S)){
-		return S.elem[S.top];
+		retval = S.elem[S.top];
+	}else{
+		retval = '0';
 	}
+	return retval;
 }
 
 #endif
