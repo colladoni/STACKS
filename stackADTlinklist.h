@@ -1,6 +1,7 @@
 #ifndef STACKADTLINKLIST_H
 #define STACKADTLINKLIST_H
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct node{
 	char elem;

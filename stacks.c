@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "stackADTarray.h"
-// #include "stackADTlinklist.h"
+// #include "stackADTarray.h"
+#include "stackADTlinklist.h"
 
 void insertBottom(STACK *S, char data);
 
