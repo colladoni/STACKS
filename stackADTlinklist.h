@@ -18,60 +18,60 @@ char top(STACK S);
 
 
 void initialize(STACK *S){
-	*S = NULL;
+	S=NULL;
 }
 
 void push(STACK *S, char data){
-	STACK temp = (struct node*)malloc(sizeof(struct node)); 
-	if(temp != NULL){
-		temp->elem = data;
-		temp->link = *S;
-		*S = temp;
+	STACK temp;
+	temp = (STACK)malloc(sizeof(struct node));
+	if (temp != NULL){
+	    temp->elem = data;
+	    temp->link = *S;
+	    *S = temp;
 	}
 }
 
-void pop(STACK *S){ //no return, just delete
-	STACK temp;
-	if(*S != NULL){
-		temp = *S;
-		*S = temp->link;
-		free(temp);
-	}
+void pop(STACK *S){
+    STACK temp;
+    if(!isEmpty(*S)){
+        temp = *S;
+        *S = temp->link;
+        free(temp);
+    }
 }
 
 int isEmpty(STACK S){
-	return (S == NULL) ? 1 : 0;
+	return (S == NULL) ? 1:0;
 }
 
 int isFull(STACK S){
-	return 0;	//linked list imp. rarely will get full
+    return 0;
 }
 
 void display(STACK S){
-	if(S!=NULL){
-		STACK temp=NULL;
-		while(S!=NULL){
-			push(&temp, S->elem);
-			printf("%c ", S->elem);
-			pop(&S);
-		}
-		while(temp!=NULL){
-			push(&S, temp->elem);
-			pop(&temp);
-		}
-	}
-	 printf("\n");
+	STACK temp;
+	
+	if(isEmpty(S)){
+	    printf("Empty List");
+	}else{
+	    temp = NULL;
+	    
+        while(!isEmpty(S)){
+            push(&temp,top(S));
+            pop(&S);
+        }
+        while(!isEmpty(temp)){
+            push(&S,top(temp));
+            printf("%c",top(S));
+            pop(&temp);
+        }
+    }
 }
 
-
 char top(STACK S){
-	char retval;
-	if(!isEmpty(S)){
-		retval = S->elem;
-	}else{
-		retval = '0';
-	}
-	return retval;
+    if(!isEmpty(S)){
+        return S->elem;
+    }
 }
 
 #endif
