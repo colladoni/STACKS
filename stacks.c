@@ -2,7 +2,7 @@
 #include "queueADTarray.h"
 // #include "stackADTlinklist.h"
 
-// void insertBottom(QUEUE *Q, char data);
+void insertBottom(QUEUE *Q, char data);
 
 int main(){
     QUEUE Qq;
@@ -27,32 +27,31 @@ int main(){
     printf("\nQueue after pushing D and E:\n");
     display(Qq);
 
-    // insertBottom(&Ss,'J');
+    insertBottom(&Qq,'J');
     
-    // printf("\nStack after inserting J in bottom:\n");
-    // display(Ss);
+    printf("\nQueue after inserting J in bottom:\n");
+    display(Qq);
 
     return 0;
 }
 
-void insertBottom(STACK *S, char data){
-    STACK temp;
+void insertBottom(QUEUE *Q, char data){
+    QUEUE temp;
 
-    if(!isFull(*S)&&!isEmpty(*S)){
-	initialize(&temp);
+    if(!isFull(*Q)&&!isEmpty(*Q)){
+	    initialize(&temp);
+        while(!isEmpty(*Q)){
+        	EnQueue(&temp, Front(*Q));
+		    DeQueue(Q);
+	    }
+    
+	    EnQueue(Q,data);
 
-        while(!isEmpty(*S)){
-        	push(&temp, top(*S));
-		pop(S);
-	}
-    	
-	push(S,data);
-
-	 while(!isEmpty(temp)){
-		push(S, top(temp));
-		pop(&temp);
+	    while(!isEmpty(temp)){
+		    EnQueue(Q, Front(temp));
+		    DeQueue(&temp);
         }
-    }else if(!isFull(*S)&&isEmpty(*S)){
-	push(S,data);
+    }else if(!isFull(*Q)&&isEmpty(*Q)){
+	EnQueue(Q,data);
     }
 }
