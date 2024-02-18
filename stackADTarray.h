@@ -17,66 +17,59 @@ void display(STACK S);
 char top(STACK S);
 
 void initialize(STACK *S){
-    S->top = MAX;
+    S->top= MAX;
 }
 
 void push(STACK *S,char data){
-    if(!isFull(*S)){
+    
+    if(!(isFull(*S))){
         S->top--;
         S->elem[S->top] = data;
-    } //else if(isFull(*S)== 1){}
+    }
 }
 
 void pop(STACK *S){
-    if(!isEmpty(*S)){
+    
+    if(!(isEmpty(*S))){
         S->top++;
-    } //else if(isEmpty(*S)== 1){}
+    }
 }
 
 int isEmpty(STACK S){
-    return (S.top == MAX) ? 1 : 0; //1 is Empty, 0 is not Empty
+    
+    return (S.top == MAX) ? 1:0;
 }
 
 int isFull(STACK S){
-    return (S.top == 0) ? 1 : 0; //1 is Full, 0 is not Full
+    return (S.top == 0) ? 1:0;
 }
 
 void display(STACK S) {
-    STACK tempStack;
-    char elem;
-
-    initialize(&tempStack);
-
-    if (isEmpty(S)) {
-        printf("Stack is empty. Nothing to display.\n");
-        return;
+    STACK temp;
+    
+    if (isEmpty(S)){
+        printf("Empty List");
+    }else{
+        initialize(&temp);
+        while(!isEmpty(S)){
+            push(&temp,top(S));
+            pop(&S);
+        }
+        
+        while(!(isEmpty(temp))){
+            push(&S,top(temp));
+            printf("%c",top(S));
+            pop(&temp);
+        }
     }
-
-    // Transfer and display the elements into the temporary stack
-    while (!isEmpty(S)) {
-        elem = S.elem[S.top];
-        printf("%c ", elem);
-        push(&tempStack, elem);
-        S.top++;
-    }
-
-    //Free temp
-    while (!isEmpty(tempStack)) {
-        pop(&tempStack);
-    }
-
-    printf("\n");
+    
 }
 
 
 char top(STACK S){
-	char retval;
-	if(!isEmpty(S)){
-		retval = S.elem[S.top];
-	}else{
-		retval = '0';
-	}
-	return retval;
+    if(!(isEmpty(S))){
+        return S.elem[S.top];
+    }
 }
 
 #endif
