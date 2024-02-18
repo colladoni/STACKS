@@ -1,35 +1,36 @@
 #include <stdio.h>
-// #include "stackADTarray.h"
-#include "stackADTlinklist.h"
+#include "queueADTarray.h"
+// #include "stackADTlinklist.h"
 
-void insertBottom(STACK *S, char data);
+// void insertBottom(QUEUE *Q, char data);
 
 int main(){
-    STACK Ss;
-    initialize(&Ss);
+    QUEUE Qq;
+    initialize(&Qq);
 
-    push(&Ss, 'A');
-    push(&Ss, 'B');
-    push(&Ss, 'C');
+    EnQueue(&Qq, 'A');
+    EnQueue(&Qq, 'B');
+    EnQueue(&Qq, 'C');
 
-    printf("Stack after pushing A, B, C:\n");
-    display(Ss);
+    printf("\nQueue after pushing A, B, C:\n");
+    display(Qq);
 
-    pop(&Ss);
-
-    printf("Stack after popping one element:\n");
-    display(Ss);
-
-    push(&Ss, 'D');
-    push(&Ss, 'E');
+    DeQueue(&Qq);
     
-    printf("Stack after pushing D and E:\n");
-    display(Ss);
 
-    insertBottom(&Ss,'J');
+    printf("\nQueue after popping one element:\n");
+    display(Qq);
+
+    EnQueue(&Qq, 'D');
+    EnQueue(&Qq, 'E');
     
-    printf("Stack after inserting J in bottom:\n");
-    display(Ss);
+    printf("\nQueue after pushing D and E:\n");
+    display(Qq);
+
+    // insertBottom(&Ss,'J');
+    
+    // printf("\nStack after inserting J in bottom:\n");
+    // display(Ss);
 
     return 0;
 }
@@ -55,5 +56,3 @@ void insertBottom(STACK *S, char data){
 	push(S,data);
     }
 }
-
-
