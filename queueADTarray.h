@@ -50,6 +50,7 @@ char Front(QUEUE Q){
     return retval;
 }
 void display (QUEUE Q){
+    //int count = (((rear - front) + MAX) + 1) % MAX;
     QUEUE temp;
     
     while(!isEmpty(Q)){
